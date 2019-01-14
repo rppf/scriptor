@@ -87,6 +87,8 @@ sanity_check && set_options && rotate_old && take_backup
 if tail -1 "${log_file}" | grep -q "completed OK"; then
     printf "Backup successful!\n"
     printf "Backup created at %s/%s-%s.xbstream\n" "${todays_dir}" "${backup_type}" "${now}"
+    mutt -s "Yehey! Backup is successful." raymond.florendo@outlook.com  < /dev/null
 else
     error "Backup failure! Check ${log_file} for more information"
+    mutt -s "Oh snap! Backup is a failure." raymond.florendo@outlook.com < /dev/null
 fi
