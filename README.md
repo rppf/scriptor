@@ -71,3 +71,6 @@ sudo -u backup /usr/local/bin/backup-mysql.sh
 ```
 
 **If theres's an error, the log is located in your backup root directory.**
+
+## TODO
+Make a playbook that will automate all the tasks above.
