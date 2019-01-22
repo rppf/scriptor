@@ -69,6 +69,10 @@ git clone https://github.com/rppf/scriptor.git
 ```sh
 sudo -u backup /usr/local/bin/backup-mysql.sh
 ```
+13. Don't forget to edit this line in **backup-mysql.sh**. Add you email to enable email notifications.
+```sh
+email="your@email.com" # Change this
+```
 
 **If theres's an error, the log is located in your backup root directory.**
 
