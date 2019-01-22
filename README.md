@@ -69,7 +69,7 @@ git clone https://github.com/rppf/scriptor.git
 ```sh
 sudo -u backup /usr/local/bin/backup-mysql.sh
 ```
-13. Don't forget to edit this line in **backup-mysql.sh**. Add your email to enable email notifications.
+**Note:** Don't forget to edit this line in **backup-mysql.sh**. Add your email to enable email notifications.
 ```sh
 email="your@email.com"
 ```
