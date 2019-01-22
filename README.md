@@ -8,9 +8,9 @@ Backup, extract, and prepare script for database.
 - MariaDB
 - Mariabackup
 - Percona Xtrabackup
-    > We need these for extracting the encrypted database backup.
+    > We need this for extracting the encrypted database backup.
 - Mutt
-    > We need these for email notification.
+    > We need this for email notification.
 - A dedicated system and mysql user for performing the backup.
 
 ## Steps
@@ -54,19 +54,19 @@ sudo mkdir -p /backups/mysql
 ```sh
 sudo chown backup:mysql /backups/mysql
 ```
-10. Create an encryption key to secure the backup Files
+9. Create an encryption key to secure the backup Files
 ```sh
 printf '%s' "$(openssl rand -base64 24)" | sudo tee /backups/mysql/encryption_key && echo
 ```
-11. Git clone this repository. It's free.
+10. Git clone this repository. It's free.
 ```sh
 git clone https://github.com/rppf/scriptor.git
 ```
-12. Move the scripts to **/usr/local/bin** and make them executable.
+11. Move the scripts to **/usr/local/bin** and make them executable.
 
-13. Then try to run the backup script
+12. Then try to run the backup script
 ```sh
 sudo -u backup /usr/local/bin/backup-mysql.sh
 ```
 
-**If theres's an error. The log is located in your backup root directory.**
+**If theres's an error, the log is located in your backup root directory.**
