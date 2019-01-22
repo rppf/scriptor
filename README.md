@@ -24,7 +24,8 @@ mysql> CREATE USER 'backup'@'localhost' IDENTIFIED BY 'password';
 ```sh
 mysql> GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT, CREATE TABLESPACE, PROCESS, SUPER, CREATE, INSERT, SELECT ON *.* TO 'backup'@'localhost';
 ```
-4. Create a system user and group named **backup**.
+4. Create a system user and group named **backup**.\
+**Note:** If you are using Ubuntu distro, you can skip this step. On Ubuntu, a **backup** user and corresponding **backup** group is already available.
 5. Configure the system backup user and assigning permissions.
     - Type the following commands to add the backup user to the **mysql** group and your **sudo** user to the **backup** group:
     ```sh
@@ -32,7 +33,7 @@ mysql> GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT, CREATE TABLESPACE, PROCESS
     sudo usermod -aG backup ${USER}
     ```
 6. Creating backup assets.
-    - Create a MySQL Configuration File with the Backup Parameters
+    - Create a MySQL configuration file with the backup parameters
     ```sh
     sudo nano /etc/mysql/backup.cnf
     ```
@@ -54,7 +55,7 @@ sudo mkdir -p /backups/mysql
 ```sh
 sudo chown backup:mysql /backups/mysql
 ```
-9. Create an encryption key to secure the backup Files
+9. Create an encryption key to secure the backup files
 ```sh
 printf '%s' "$(openssl rand -base64 24)" | sudo tee /backups/mysql/encryption_key && echo
 ```
