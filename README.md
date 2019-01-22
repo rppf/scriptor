@@ -9,11 +9,13 @@ Backup, extract, and prepare script for database.
 - Mariabackup
 - Percona Xtrabackup
     > We need these for extracting the encrypted database backup.
+- Mutt
+    > We need these for email notification.
 - A dedicated system and mysql user for performing the backup.
 
 ## Steps
 **For this example, we will be using *backup* as our backup user**
-1. Install the first 3 requirements above.
+1. Install the first 4 requirements above.
 2. Create a MYSQL user dedicated for performing the backup.
 ```sh
 mysql> CREATE USER 'backup'@'localhost' IDENTIFIED BY 'password'; 
@@ -35,9 +37,9 @@ mysql> GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT, CREATE TABLESPACE, PROCESS
     sudo nano /etc/mysql/backup.cnf
     ```
     - Inside, start a **[client]** section and set the MySQL backup user and password user you defined within MySQL:
-    >[client]\
-    >user=backup\
-    >password=password
+        >[client]\
+        >user=backup\
+        >password=password
 
     - Give ownership of the file to the **backup** user and then restrict the permissions so that no other users can access the file:
     ```sh
